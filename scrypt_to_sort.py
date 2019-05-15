@@ -4,23 +4,23 @@ from os.path import isfile, join, isdir
 print("Path to sort: ")
 path = input()
 
-file_resolutions = set()
+file_format = set()
 files_in_dir = [(f, f.split('.')[-1]) for f in listdir(path) if isfile(join(path, f)) and len(f.split('.')) > 1]
 
-for (name, res) in files_in_dir:
-    if res not in file_resolutions:
-        file_resolutions.add(res)
+for (name_of_file, format_of_file) in files_in_dir:
+    if format_of_file not in file_format:
+        file_format.add(format_of_file)
         try:
-            mkdir(join(path,res))
-            print('Created directory: ', res)
+            mkdir(join(path,format_of_file))
+            print('Created directory: ', format_of_file)
         except FileExistsError:
             pass
         except Exception as e:
             print('Error with create directory: ', e)
 
     try:
-        rename(join(path, name), join(path, res, name))
-        print(f'File ({name}) has been moved form {path} to {join(path, res)}')
+        rename(join(path, name_of_file), join(path, format_of_file, name_of_file))
+        print(f'File ({name_of_file}) has been moved form {path} to {join(path, format_of_file)}')
     except Exception as e:
         print('Error with moved file: ', e)
 
