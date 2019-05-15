@@ -1,7 +1,8 @@
 from os import listdir, mkdir, rename
 from os.path import isfile, join, isdir
 
-path = 'Downloads'
+print("Path to sort: ")
+path = input()
 
 file_resolutions = set()
 files_in_dir = [(f, f.split('.')[-1]) for f in listdir(path) if isfile(join(path, f)) and len(f.split('.')) > 1]
