@@ -24,4 +24,4 @@ for (name_of_file, format_of_file) in files_in_dir:
     except Exception as e:
         print('Error with moved file: ', e)
 
-print('DONE!')
+print('Complete!')
